@@ -3,7 +3,7 @@
 
    <Header title="BOOLFLIX" @performSearch="searchFilm" />
 
-   <Main :filter="filmSearch"/>
+   <Main :filter="searchFilm"/>
   </div>
 </template>
 
