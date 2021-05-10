@@ -8,26 +8,23 @@
           class="search-input"
           v-model="searchFilm"
           >
-          <Search @performSearch="searchFilm" />
+          
       </form>
       
   </header>
 </template>
 
 <script>
-import Search from '@/components/Search.vue'
+
 
 export default {
     name : 'Header',
     props : ['title'],
     components : {
-        Search
+        
     },
     methods : {
-        searchFilm() {
-            console.log('log parent');
-        },
-        
+
     }
 }
 </script>
