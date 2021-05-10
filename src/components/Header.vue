@@ -8,7 +8,9 @@
           class="search-input"
           v-model="searchFilm"
           >
-          <button type="submit" @click.prevent="$emit('performSearch', searchFilm)">search</button>
+          <button
+           type="submit"
+            @click.prevent="$emit('performSearch', searchFilm)">search</button>
       </form>
       
   </header>

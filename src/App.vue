@@ -1,9 +1,9 @@
 <template>
   <div id="app">
-    
+
    <Header title="BOOLFLIX" @performSearch="searchFilm" />
 
-   <Main />
+   <Main :filter="filmSearch"/>
   </div>
 </template>
 
@@ -18,8 +18,8 @@ export default {
     Main,
   },
   methods: {
-    searchFilm() {
-      console.log('log parent');
+    searchFilm(film) {
+      console.log('log parent', film);
     },
   }
 }

@@ -19,6 +19,7 @@ import Film from '@/components/Film.vue'
 
 export default {
     name: 'Main',
+    props: ['filter'],
     components: {
         Film
     },
@@ -26,7 +27,8 @@ export default {
         return {
             apiURL : 'https://api.themoviedb.org/3/search/tv?api_key=df9d9a316a0d8ce9708918c66df3c99f&query=avengers',
             filmList : [],
-            loading : true
+            loading : true,
+            
         }
     },
     created() {
