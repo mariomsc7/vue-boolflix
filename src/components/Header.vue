@@ -8,7 +8,7 @@
           class="search-input"
           v-model="searchFilm"
           >
-          
+          <button type="submit" @click.prevent="$emit('performSearch', searchFilm)">search</button>
       </form>
       
   </header>
@@ -22,6 +22,11 @@ export default {
     props : ['title'],
     components : {
         
+    },
+    data() {
+        return {
+            searchFilm: '',
+        }
     },
     methods : {
 
