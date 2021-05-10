@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+
 import Film from '@/components/Film.vue'
 
 export default {
@@ -28,29 +28,12 @@ export default {
             apiURL : 'https://api.themoviedb.org/3/search/tv?api_key=df9d9a316a0d8ce9708918c66df3c99f&query=avengers',
             filmList : [],
             loading : true,
-            
+            searchingMovies: '',
         }
     },
-    created() {
-        this.getFilm()
-    },
-    methods : {
-        getFilm() {
-            /**
-             * API CALL
-             */
-            axios.get(this.apiURL)
-            .then(res => {
-                console.log(res.data);
-                this.filmList = res.data.results;
-                this.loading = false;
-            })
-            .catch(err => {
-                console.log('Error', err);
-            })
-        },
 
-        
+    methods : {
+
     
     }
 }
