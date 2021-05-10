@@ -1,7 +1,7 @@
 <template>
 <main class="movies">
     <div v-if="!loading">
-        <Header @performSearch="searchFilm" />
+        
         <div v-for="film in filmList" :key="film.id" class="filmBox">
 
         <Film :info='film'/>
@@ -14,14 +14,12 @@
 </template>
 
 <script>
-import axios from 'axios';
-import Header from '@/components/Header.vue'
+import axios from 'axios'
 import Film from '@/components/Film.vue'
 
 export default {
     name: 'Main',
     components: {
-        Header,
         Film
     },
     data() {
@@ -49,9 +47,7 @@ export default {
                 console.log('Error', err);
             })
         },
-        searchFilm() {
-            console.log('log parent');
-        },
+
         
     
     }

@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-   <Header title="BOOLFLIX"/>
+    
+   <Header title="BOOLFLIX" @performSearch="searchFilm" />
 
    <Main />
   </div>
@@ -15,6 +16,11 @@ export default {
   components: {
     Header,
     Main,
+  },
+  methods: {
+    searchFilm() {
+      console.log('log parent');
+    },
   }
 }
 </script>
