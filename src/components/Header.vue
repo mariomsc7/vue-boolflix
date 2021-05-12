@@ -1,16 +1,19 @@
 <template>
   <header>
-      <h1>{{title}}</h1>
+      
+      <!-- LOGO -->
+      <a href="">BOOLFLIX</a>
+      <!-- INPUT SEARCH -->
       <form>
           <input 
           type="text"
           placeholder="Cerca"
           class="search-input"
-          v-model="searchFilm"
+          v-model.trim="searchInput"
           >
           <button
            type="submit"
-            @click.prevent="$emit('performSearch', searchFilm)">search</button>
+            @click.prevent="$emit('performSearch', searchInput)">search</button>
       </form>
       
   </header>
@@ -27,20 +30,17 @@ export default {
     },
     data() {
         return {
-            searchFilm: '',
+            searchInput: '',
         }
     },
-    methods : {
-
-    }
 }
 </script>
 
 <style scoped lang="scss">
     header {
         display: flex;
-        padding: 20px;
-        align-items: center;
+        justify-content: space-between;
+        padding: 50px;
     }
     
 </style>

@@ -1,9 +1,10 @@
 <template>
   <div id="app">
 
-   <Header title="BOOLFLIX" @performSearch="searchFilm" />
+   <Header @performSearch="getData" />
 
-   <Main :filter="searchedFilms"/>
+   <Main :movies="movieList" :series="tvList"/>
+
   </div>
 </template>
 
@@ -20,53 +21,47 @@ export default {
   },
     data() {
       return {
-          apiURL : 'https://api.themoviedb.org/3/trending/all/day?api_key=df9d9a316a0d8ce9708918c66df3c99f',
-          filmList : [],
-          loading : true,
-          searchedFilms : []
+          apiURL : 'https://api.themoviedb.org/3/search/',
+          apiKey : 'df9d9a316a0d8ce9708918c66df3c99f',
+          movieList : [],
+          tvList : [],
       }
   },
-  created() {
-      this.getFilm()
-    },
   methods: {
-    searchFilm(film) {
-      this.searchedFilms = [];
-      console.log('log parent', film);
-       axios.get('https://api.themoviedb.org/3/search/tv?api_key=df9d9a316a0d8ce9708918c66df3c99f&query=' + film)
-            .then(res => {
-              console.log(res.data);
-              this.filmList = res.data.results;
-              this.searchedFilms = this.filmList;
-              this.loading = false;
-            })
-            .catch(err => {
-                console.log('Error', err);
-            })
-      // this.searchedFilms = this.filmList.filter(filter => {
-      //   return filter.name.includes(film)
-      // }) 
+    getData(searchInput) {
+      console.log(searchInput);
+
+      if( searchInput !== '') {
+
+        const apiParams = {
+                api_key : this.apiKey,
+                query : searchInput,
+                language : 'it-IT'
+              };
+
+          /**
+           * MOVIES CALL
+           */
+          axios.get(this.apiURL + 'movie', {
+              params : apiParams,
+          }).then(res => {
+            this.movieList = res.data.results;
+          });
+          /**
+           * TV SERIES CALL
+           */
+          axios.get(this.apiURL + 'tv', {
+              params : apiParams,
+          }).then(res => {
+            this.tvList = res.data.results;
+          });
+      }
     },
-     getFilm() {
-            /**
-             * API CALL
-             */
-      axios.get(this.apiURL)
-            .then(res => {
-              console.log(res.data);
-              this.filmList = res.data.results;
-              this.searchedFilms = this.filmList;
-              this.loading = false;
-            })
-            .catch(err => {
-                console.log('Error', err);
-            })
-        },
   }
 }
 </script>
 
 <style lang="scss">
-  @import '@/scss/general.scss';
+  
   
 </style>

@@ -1,33 +1,42 @@
 <template>
-<main class="movies">
-    <div v-if="filter.length > 0">
-        
-        <div v-for="film in filter" :key="film.id" class="filmBox">
+    <main>
 
-        <Film :info='film'/>
-
+        <div v-show="movies.length > 0" class="movies">
+            <h2>Film</h2>
+            <div>
+                <Cards
+                    v-for="movie in movies"
+                    :key="movie.id"
+                    :details="movie"
+                />
+            </div>
         </div>
-    </div>
-    <div v-else class="loader">Loading...</div>
-</main>
 
+        <div v-show="series.length > 0" class="series">
+            <h2>Serie TV</h2>
+            <div>
+                <Cards
+                    v-for="serie in series"
+                    :key="serie.id"
+                    :details="serie"
+                />
+            </div>
+        </div>
+
+    </main>
 </template>
 
 <script>
-
-import Film from '@/components/Film.vue'
+import Cards from '@/components/Cards.vue'
 
 export default {
     name: 'Main',
-    props: ['filter'],
     components: {
-        Film
+        Cards
     },
-
-
-    methods : {
-
-    
+    props : {
+        movies : Array,
+        series : Array,
     }
 }
 </script>
