@@ -97,5 +97,9 @@ export default {
 
 <style lang="scss">
   @import '@/scss/general.scss';
-  
+
+  @import '~@fontsource/montserrat/index.css';
+  @import '~@fontsource/montserrat/400.css';
+  @import '~@fontsource/montserrat/400-italic.css';
+
 </style>

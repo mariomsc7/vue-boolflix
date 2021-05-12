@@ -1,7 +1,7 @@
 <template>
     <main>
 
-        <div v-show="movies.length > 0" >
+        <div v-show="movies.length > 0" class="container">
             <h2>Film</h2>
             <div class="box">
                 <Cards
@@ -12,7 +12,7 @@
             </div>
         </div>
 
-        <div v-show="series.length > 0" >
+        <div v-show="series.length > 0" class="container">
             <h2>Serie TV</h2>
             <div class="box">
                 <Cards
@@ -46,9 +46,22 @@ export default {
 
         background: #312f2f;
     }
+
+    .container {
+        padding: 50px;
+    }
+
     .box {
         display: flex;
         flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    h2 {
+        color: #fff;
+        font-size: 2rem;
+        margin-bottom: 50px;
     }
 
 </style>

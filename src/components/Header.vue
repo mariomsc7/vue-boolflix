@@ -15,9 +15,11 @@
           class="search-input"
           v-model.trim="searchInput"
           >
-          <button
-           type="submit"
-            @click.prevent="$emit('performSearch', searchInput)">search</button>
+          <button class="btn" @click.prevent="$emit('performSearch', searchInput)">
+              <i class="fas fa-search"></i>
+          </button>
+          
+
       </form>
       
   </header>
@@ -45,10 +47,41 @@ export default {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 50px;
+        padding: 20px;
         background: #141414;
     }
 
+    .logo {
+        width: 200px;
+    }
 
-    
+    .logo img {
+        width: 100%;
+    }
+
+    .search-input {
+        outline: none;
+        padding: 10px;
+        background: transparent;
+        color: #fff;
+        margin-right: 10px;
+        border: 1px solid;
+    }
+
+    .btn {
+        cursor: pointer;
+        margin-right: 100px;
+        padding: 10px;
+        outline: none;
+        background: transparent;
+        border: 1px solid #fff;
+        &:hover {
+            background: #888;
+        }
+    }
+    .btn i {
+        color: #fff;
+    }
+
+
 </style>
