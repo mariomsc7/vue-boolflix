@@ -1,6 +1,9 @@
 <template>
-    <div class="film-box">
-        <ul>
+    <div class="card-box">
+        <!-- POSTER IMAGE -->
+        <img :src="`https://image.tmdb.org/t/p/w300/${details.poster_path}`" alt="">
+        <div class="overlay">
+            <ul>
             <!-- TITLES -->
             <li>Titolo: {{ details.title ? details.title : details.name }}</li>
             <li>Titolo originale: {{ details.original_title ? details.original_title : details.original_name}}</li>
@@ -15,10 +18,13 @@
             <!-- RATING STARS -->
             <li>Voto:
                 <span>
-                    
+                    <i class="fas fa-star" v-for="(star, index) in Math.ceil(details.vote_average / 2)" :key="index"></i>
+                    <i class="far fa-star" v-for="(star, index) in 5 - Math.ceil(details.vote_average / 2)" :key="index"></i>
                 </span>
             </li>
-        </ul>
+            </ul>
+        </div>
+
     </div>
 </template>
 
@@ -42,6 +48,14 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
+    .overlay {
+        position: relative;
+    }
+
+    ul {
+        position: absolute;
+    }
     li img {
         width: 24px;
     }

@@ -23,9 +23,43 @@ export default {
       return {
           apiURL : 'https://api.themoviedb.org/3/search/',
           apiKey : 'df9d9a316a0d8ce9708918c66df3c99f',
+          apiMovieTrend : 'https://api.themoviedb.org/3/trending/movie/week',
+          apiTvTrend : 'https://api.themoviedb.org/3/trending/tv/week',
           movieList : [],
           tvList : [],
       }
+  },
+  created() {
+    console.log('creaded');
+      /**
+       * MOOVIE CALL
+       */
+      axios.get(this.apiMovieTrend, {
+        params : {
+          api_key : this.apiKey,
+        }
+      })
+      .then(res => {
+        this.movieList = res.data.results;
+      })
+      .catch(err => {
+        console.log('Error', err);
+      });
+
+      /**
+       * TV SERIES CALL
+       */
+      axios.get(this.apiTvTrend, {
+        params : {
+          api_key : this.apiKey,
+        }
+      })
+      .then(res => {
+        this.tvList = res.data.results;
+      })
+      .catch(err => {
+        console.log('Error', err);
+      });
   },
   methods: {
     getData(searchInput) {
@@ -62,6 +96,6 @@ export default {
 </script>
 
 <style lang="scss">
-  
+  @import '@/scss/general.scss';
   
 </style>

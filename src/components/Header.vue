@@ -1,8 +1,12 @@
 <template>
   <header>
-      
+
       <!-- LOGO -->
-      <a href="">BOOLFLIX</a>
+      <div class="logo">
+          <img src="https://fontmeme.com/permalink/210512/b84f67a16fb1d9d9325b6b95003a4be8.png" alt="">
+      </div>
+          
+      
       <!-- INPUT SEARCH -->
       <form>
           <input 
@@ -40,7 +44,11 @@ export default {
     header {
         display: flex;
         justify-content: space-between;
+        align-items: center;
         padding: 50px;
+        background: #141414;
     }
+
+
     
 </style>

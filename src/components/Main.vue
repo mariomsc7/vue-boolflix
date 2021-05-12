@@ -1,9 +1,9 @@
 <template>
     <main>
 
-        <div v-show="movies.length > 0" class="movies">
+        <div v-show="movies.length > 0" >
             <h2>Film</h2>
-            <div>
+            <div class="box">
                 <Cards
                     v-for="movie in movies"
                     :key="movie.id"
@@ -12,9 +12,9 @@
             </div>
         </div>
 
-        <div v-show="series.length > 0" class="series">
+        <div v-show="series.length > 0" >
             <h2>Serie TV</h2>
-            <div>
+            <div class="box">
                 <Cards
                     v-for="serie in series"
                     :key="serie.id"
@@ -42,7 +42,13 @@ export default {
 </script>
 
 <style scoped lang="scss">
-    .filmBox {
-        margin-bottom: 30px;
+    main {
+
+        background: #312f2f;
     }
+    .box {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
 </style>
