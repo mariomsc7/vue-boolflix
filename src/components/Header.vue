@@ -44,10 +44,14 @@ export default {
 
 <style scoped lang="scss">
     header {
+        position: fixed;
+        width: 100%;
+        z-index: 1;
+        opacity: .8;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 20px;
+        padding: 10px;
         background: #141414;
     }
 

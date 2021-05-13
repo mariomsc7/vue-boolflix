@@ -43,8 +43,8 @@ export default {
 
 <style scoped lang="scss">
     main {
-
-        background: #312f2f;
+        padding-top: 100px;
+        
     }
 
     .container {
@@ -54,7 +54,7 @@ export default {
     .box {
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-around;
+        justify-content: center;
         align-items: center;
     }
 
